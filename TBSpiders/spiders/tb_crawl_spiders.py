@@ -40,7 +40,7 @@ class TBCrawlSpiders(CrawlSpider):
             shop_istmall = shop.xpath('div[@class="item-box st-itembox"]/div[@class="row service-box"]/div[@class="service-btns feature-icon"]//span[@class="icon-pit icon-service-tianmao"]').extract()
             #判断是不是天猫商铺
             shop_istmall = "is_tmall" if shop_istmall else "not_tmall"
-            goods_price = shop.xpath('div[@class="item-box st-itembox"]/div/div[@class="col price"]/text()').extract()
+            goods_price = shop.xpath('div[@class="item-box st-itembox"]/div/div[@class="col price g_price g_price-highlight"]/strong/text()').extract()
             #清除其中的空格
             goods_price = goods_price[0].strip()
             goods_sale_num = shop.xpath('div[@class="item-box st-itembox"]/div/div[@class="col end dealing"]/text()').extract()
